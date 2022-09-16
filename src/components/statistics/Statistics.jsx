@@ -10,10 +10,10 @@ const Statistics = ({ title, stats }) => {
       {title && <h2 className={styles.title}>Upload stats</h2>}
 
       <ul className={styles['stat-list']}>
-        {stats.map(item => (
-          <li style={{ backgroundColor: getRandomRGB() }} key={item.id} className={styles.item}>
-            <span className={styles.label}>{item.label}</span>
-            <span className={styles.percentage}>{item.percentage} %</span>
+        {stats.map(({ id, label, percentage }) => (
+          <li style={{ backgroundColor: getRandomRGB() }} key={id} className={styles.item}>
+            <span className={styles.label}>{label}</span>
+            <span className={styles.percentage}>{percentage} %</span>
           </li>
         ))}
       </ul>
@@ -23,7 +23,13 @@ const Statistics = ({ title, stats }) => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number
+    })
+  ),
 }
 
 export default Statistics
