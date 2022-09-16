@@ -21,7 +21,7 @@ FriendList.propTypes = {
       name: PropTypes.string,
       isOnline: PropTypes.bool
     })
-  )
+  ).isRequired
 }
 
 export default FriendList

@@ -34,7 +34,7 @@ TransactionHistory.propTypes = {
       amount: PropTypes.string,
       currency: PropTypes.string,
     })
-  )
+  ).isRequired
 }
 
 export default TransactionHistory
